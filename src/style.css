@@ -61,7 +61,7 @@ button:focus-visible {
 
 /* FIXED app container styles */
 #app {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: left; /* Changed from center to left */
