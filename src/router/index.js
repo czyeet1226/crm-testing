@@ -8,6 +8,7 @@ import Meeting from '../pages/Meeting.vue'
 import Appointment from '../pages/Appointment.vue'
 import ViewCustomer from '../pages/View_customer.vue'
 import Settings from '../pages/Settings.vue'
+import Meeting_detail from '../pages/Meeting_detail.vue'
 
 const routes = [
   { path: '/', name: 'FirstPage', component: FirstPage },
