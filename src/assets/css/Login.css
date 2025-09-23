@@ -1,0 +1,144 @@
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+.login-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../figures/Pindahman.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+  
+}
+
+
+
+.Login_Page {
+  position: relative;
+  z-index: 2;
+  width: 350px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.9); 
+}
+
+.Login_Page h1{
+  color: black;
+}
+
+.username-wrapper,
+.password-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 10px;
+}
+
+.username-wrapper label,
+.password-wrapper label {  
+  color: gray;
+  left: 10px;
+  position: absolute;
+  text-align: right;
+  background: rgba(255, 255, 255, 0.8);
+  border:none;
+  font-weight: 900;
+  padding: 0 4px; 
+  pointer-events: none; 
+}
+
+.username-wrapper input,
+.password-wrapper input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #000;
+    transition: background-color 5000s ease-in-out;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+  font-size: 18px;
+}
+
+.LoginButton {
+  background: linear-gradient(135deg, #0284C7, #16A34A);
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.LoginButton:hover {
+  background: linear-gradient(135deg, #0369A1, #15803D);
+}
+
+.username-wrapper input:focus + label,
+.username-wrapper input:valid + label {
+    color: #0284C7;
+    font-size: 12px;
+    transform: translateY(-113%);
+    transition: all 0.3s ease;
+}
+
+.username-wrapper input:focus,
+.username-wrapper input:valid {
+    outline: none;  
+    border: 1px solid #0284C7
+
+}
+
+.password-wrapper input:focus + label,
+.password-wrapper input:valid + label {
+    color: #0284C7;
+    font-size: 12px;
+    transform: translateY(-113%);
+    transition: all 0.3s ease;
+    
+}
+.password-wrapper input:focus,
+.password-wrapper input:valid {
+    outline: none; 
+    border: 1px solid #0284C7
+
+}

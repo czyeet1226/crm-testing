@@ -2,7 +2,7 @@
   <div class="sidebar">
     <h2>CRM Menu</h2>
     <ul>
-      <li><router-link to="/">Dashboard</router-link></li>
+      <li><router-link to="/dashboard">Dashboard</router-link></li>
       <li><router-link to="/client-form">Add Client</router-link></li>
       <li><router-link to="/meetings">Meeting Detail</router-link></li>
       <li><router-link to="/appointment">Appointment</router-link></li>
