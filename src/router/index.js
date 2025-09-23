@@ -21,9 +21,11 @@ const routes = [
       { path: 'dashboard', component: Dashboard },
       { path: 'client-form', component: ClientForm },
       { path: 'meetings', component: Meeting },
+      { path: 'meeting-detail', component: Meeting_detail },
       { path: 'appointment', component: Appointment },
       { path: 'view-customer', component: ViewCustomer },
       { path: 'settings', component: Settings },
+      
     ],
   },
 ]
