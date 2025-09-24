@@ -38,6 +38,7 @@ const password = ref('')
 const show = ref(false)
 const responseMessage = ref('')
 const handleLogin = async () => {
+  localStorage.setItem("user", JSON.stringify({ username: username.value }))
   router.push('/dashboard')
   const data = {
     username: username.value,

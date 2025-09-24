@@ -13,6 +13,7 @@ const route = useRoute()
     <p><strong>Time:</strong> {{ route.query.time }}</p>
     <p><strong>Description:</strong> {{ route.query.description }}</p>
     <p><strong>Location:</strong> {{ route.query.location }}</p>
+    <p><strong>Added By:</strong> {{ route.query.added_by }}</p>
   </div>
 </template>
 

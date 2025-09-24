@@ -1,8 +1,13 @@
 <template>
   <div>
-    <div class="search-bar">
-      <input v-model="searchQuery" type="text" placeholder="Search by client name" />
-      <button @click="searchEvents">Search</button>
+    <div class="filter-bar">
+      <label>Filter by User:</label>
+      <select v-model="selectedUser" @change="filterEvents">
+        <option value="">All Users</option>
+        <option value="Ryan">Ryan</option>
+        <option value="Michelle">Michelle</option>
+        <option value="Angeline">Angeline</option>
+      </select>
     </div>
 
     <FullCalendar :options="calendarOptions" />
@@ -45,10 +50,13 @@ import { useRouter } from 'vue-router'   // <-- import router hook
 
 const router = useRouter()               // <-- create router instance
 
-const events = ref([
-  { client_name: 'czy', title: 'Meeting with client', date: '2025-09-20', description: 'CRM requirements' },
-  { client_name: 'wjt', title: 'Project Deadline', date: '2025-09-25', description: 'Final report' }
+const allEvents = ref([
+  { client_name: 'czy', title: 'Meeting with client', date: '2025-09-20', description: 'CRM requirements', added_by: 'Ryan' },
+  { client_name: 'wjt', title: 'Project Deadline', date: '2025-09-25', description: 'Final report', added_by: 'Michelle' }
 ])
+
+const events = ref([...allEvents.value])
+
 
 const showModal = ref(false)
 const selectedDate = ref('')
@@ -68,42 +76,42 @@ function closeModal() {
 
 function addEvent() {
   if (newEvent.value.title) {
-    events.value.push({
+    const currentUser = JSON.parse(localStorage.getItem("user"))
+    const eventObj = {
       client_name: newEvent.value.client_name,
       time: newEvent.value.time,
       title: newEvent.value.title,
       date: selectedDate.value,
       description: newEvent.value.description,
-      location: newEvent.value.location
-    })
+      location: newEvent.value.location,
+      added_by: currentUser?.username || "Unknown"
+    }
+    events.value.push(eventObj)
+    allEvents.value.push(eventObj) 
     closeModal()
   } else {
     alert("Title is required!")
   }
 }
 
-function searchEvents() {
-  if (searchQuery.value.trim() === '') {
-    events.value = [...allEvents.value] 
+const selectedUser = ref('')
+function filterEvents() {
+  if (selectedUser.value === '') {
+    events.value = [...allEvents.value]
   } else {
-    events.value = allEvents.value.filter(e =>
-      e.client_name.toLowerCase().includes(searchQuery.value.toLowerCase())
+    events.value = allEvents.value.filter(
+      e => e.added_by === selectedUser.value
     )
   }
 }
 
-const calendarOptions = {
+const calendarOptions = ref({
   plugins: [dayGridPlugin, interactionPlugin],
   initialView: 'dayGridMonth',
-  events: events.value,
-
-  dateClick(info) {
-    openModal(info.dateStr)
-  },
-
+  events: events,   // bind the ref itself, not its value
+  dateClick(info) { openModal(info.dateStr) },
   eventClick(info) {
     info.jsEvent.preventDefault()
-    // navigate to another page with event details
     router.push({
       path: '/meeting-detail',
       query: {
@@ -112,11 +120,13 @@ const calendarOptions = {
         title: info.event.title,
         date: info.event.startStr,
         description: info.event.extendedProps.description || 'No description',
-        location: info.event.extendedProps.location || 'No location'
+        location: info.event.extendedProps.location || 'No location',
+        added_by: info.event.extendedProps.added_by || 'No user'
       }
     })
   }
-}
+})
+
 </script>
 
 
@@ -218,6 +228,23 @@ const calendarOptions = {
   background: #ccc;
   color: black;
 }
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.filter-bar select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: black;
+  background: white;
+}
+
 
 
 </style>
