@@ -13,9 +13,16 @@
     "@fullcalendar/daygrid": "^6.1.19",
     "@fullcalendar/interaction": "^6.1.19",
     "@fullcalendar/vue3": "^6.1.19",
+    "@primevue/themes": "^4.3.9",
+    "@syncfusion/ej2-vue-calendars": "^31.1.21",
+    "@vuepic/vue-datepicker": "^11.0.2",
     "axios": "^1.12.2",
+    "chart.js": "^4.5.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.3.9",
     "router": "^2.2.0",
     "vue": "^3.5.21",
+    "vue-chartjs": "^5.3.2",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
