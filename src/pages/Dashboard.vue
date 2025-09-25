@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Meeting Dashboard</h1>
+    <div class="title">Meeting Dashboard</div>
 
     <div class="SortByDate">
       <div>Auto Date Range</div>
@@ -39,6 +39,12 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  font-size: 30px;
+  margin: 10px;
+  font-weight: 1000;
+  font-family: 'Nunito', sans-serif;
+}
 .SortByDate {
   width: 200px;
   height: 60px;
@@ -75,7 +81,7 @@ export default {
   background-color: rgba(218, 214, 214, 0.2);
   border-radius: 3px;
   padding: 5px 10px;
-  
+
 }
 
 </style>

@@ -20,13 +20,13 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/meetings">
+        <router-link to="/appointment">
           <i class="fas fa-handshake"></i>
           <span class="link-text">Meeting Detail</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/appointment">
+        <router-link to="/meetings">
           <i class="fas fa-calendar-alt"></i>
           <span class="link-text">Appointment</span>
         </router-link>

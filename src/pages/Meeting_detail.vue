@@ -18,7 +18,10 @@ const route = useRoute()
 </template>
 
 <style>
-    * {
-        color: black ;
-        }
+.title {
+  font-size: 30px;
+  margin: 10px;
+  font-weight: 1000;
+  font-family: 'Nunito', sans-serif;
+}
 </style>
